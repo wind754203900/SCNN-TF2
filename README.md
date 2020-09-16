@@ -51,3 +51,27 @@ Source Code:
     cd data_provider
     python tusimple_processing.py   # modify variable of 'src_dir','dst_dir' and 'test_dir' in python file
     ```
+    After running. you will get
+    ```
+    $TUSIMPLEROOT
+    |-train_set
+      |──...
+      |──training
+         |──train_instance.txt
+         |──train_binary.txt
+         |──validation_instance.txt
+         |──validation_binary.txt
+    |-test_set
+      |──...
+      |──test.txt
+    ```
+    
+# Get Started
+1. Modify config file
+    Change `TU_DATASETS_TRAIN` and `TU_DATASETS_VALID` to the path where your tusimple train and validation annotaion txt files store in
+    ```
+    # config file in global_config/config.py
+    __C.TU_DATASETS_TRAIN = '{your_generated_tusimple_dataset_path}/training/train_instance.txt'
+    __C.TU_DATASETS_VALID = '{your_generated_tusimple_dataset_path}/training/validation_instance.txt'
+    
+    ```
