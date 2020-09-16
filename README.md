@@ -114,6 +114,7 @@ Source Code:
     ```
     
     If you want to visulize the result, please change the value `CFG.TEST.VISUALIZE ` to `True`
+    ```
     # config file in global_config/config.py
     __C.TEST.VISUALIZE = True
     ```
