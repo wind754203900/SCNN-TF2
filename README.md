@@ -10,9 +10,28 @@ Source Code:
 
 # Before Started
 
-1. Data preparation
+1. Clone the project
 
-Download [Tusimple](https://github.com/TuSimple/tusimple-benchmark/issues/3). Then extract to`$TUSIMPLEROOT`. The directory arrangement of Tusimple should look like:
+    ```
+    git clone https://github.com/wind754203900/SCNN-TF2
+    cd SCNN-TF2
+    ```
+2. Create a conda virtual environment and activate it
+
+    ```
+    conda create -n scnn_tf2 python=3.7 -y
+    conda activate scnn_tf2
+    ```
+    
+    Then install dependencies
+    ```
+    pip install -r requirements.txt
+    ```
+    
+
+3. Data preparation
+
+    Download [Tusimple](https://github.com/TuSimple/tusimple-benchmark/issues/3). Then extract to`$TUSIMPLEROOT`. The directory arrangement of Tusimple should look         like:
     ```
     $TUSIMPLEROOT
     |-train_set
@@ -26,4 +45,9 @@ Download [Tusimple](https://github.com/TuSimple/tusimple-benchmark/issues/3). Th
       |──test_tasks_0627.json
       |──test_label.json
       |──readme.md
+    ```
+    Since the segmentation annotation is not provided for Tusimple, please generate seg segmentation from the json annotation. 
+    ```
+    cd data_provider
+    python tusimple_processing.py   # modify variable of 'src_dir','dst_dir' and 'test_dir' in python file
     ```
