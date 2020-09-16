@@ -95,6 +95,29 @@ Source Code:
     ```
     Since I use `tf.distribute.MirroredStrategy()` in the code, the code will use one gpu or multi-gpus automatical automatically.
     
-2. Evaluation
-
+    After training, the weights file will be save in `weights/{model_name}.h5`
     
+    You can also modify the model save path by editing `global_config/config.py`
+    ```
+    # config file in global_config/config.py
+    __C.TRAIN.MODEL_SAVE_PATH = '{weigth_save_path_of_your_model}'.
+    ```
+    
+2. Evaluation
+    
+    Before evaluation, you also should modify `global_config/config.py` to your tusimple test_dataset.
+    
+    ```
+    # config file in global_config/config.py
+    __C.TEST.DATAROOT = '{your_tusimple_test_dataset_path}/test_set'
+    __C.TEST.ANNO_PATH = '{your_tusimple_test_dataset_path}/test_set/test.txt'
+    ```
+    
+    If you want to visulize the result, please change the value `CFG.TEST.VISUALIZE ` to `True`
+    # config file in global_config/config.py
+    __C.TEST.VISUALIZE = True
+    ```
+#Other
+
+The support for CULane Dataset will be implemented in the future.
+
