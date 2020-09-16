@@ -51,7 +51,7 @@ Source Code:
     cd data_provider
     python tusimple_processing.py   # modify variable of 'src_dir','dst_dir' and 'test_dir' in python file
     ```
-    After running. you will get
+    After running. You will get
     ```
     $TUSIMPLEROOT
     |-train_set
@@ -61,17 +61,40 @@ Source Code:
          |──train_binary.txt
          |──validation_instance.txt
          |──validation_binary.txt
+         |──gt_image
+            |──....png
+         |──gt_instance_image
+            |──....png
+         |──gt_binary_image
+            |──....png
     |-test_set
       |──...
       |──test.txt
     ```
     
 # Get Started
-1. Modify config file
+1. Train your model
+    
+    First, modify config file in `global_config/config.py`
+    
     Change `TU_DATASETS_TRAIN` and `TU_DATASETS_VALID` to the path where your tusimple train and validation annotaion txt files store in
     ```
     # config file in global_config/config.py
     __C.TU_DATASETS_TRAIN = '{your_generated_tusimple_dataset_path}/training/train_instance.txt'
     __C.TU_DATASETS_VALID = '{your_generated_tusimple_dataset_path}/training/validation_instance.txt'
-    
     ```
+    
+    OPTIONAL:
+    
+    You can change some training setting about `epoches,learning rate and so on` in config file
+    
+    Start training with: (You also can run the code in Pycharm)
+    ```
+    cd tools
+    python train_deeplab_distribute.py
+    ```
+    Since I use `tf.distribute.MirroredStrategy()` in the code, the code will use one gpu or multi-gpus automatical automatically.
+    
+2. Evaluation
+
+    
