@@ -118,6 +118,12 @@ Source Code:
     # config file in global_config/config.py
     __C.TEST.VISUALIZE = True
     ```
+    Evaluate by(Modify your ground truth json path `gt_json_path` in `evaluate_to_json.py`)
+    ```
+    cd tools
+    python evaluate_to_json.py
+    ```
+    It will generate a josn file in `evaluation/evaluate_lane.json`.
 # Other
 
 The support for CULane Dataset will be implemented in the future.
